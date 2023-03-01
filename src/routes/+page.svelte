@@ -40,13 +40,17 @@
   main {
     font-family: 'Muli', sans-serif;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
     margin: 0;
   }
 
+  .container {
+    padding-top: 50px;
+  }
+  
   .btn {
     background-color: #3498db;
     color: #fff;

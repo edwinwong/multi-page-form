@@ -52,6 +52,7 @@
     text-align: center;
     max-width: 100%;
     width: 350px;
+    min-height: 320px;
   }
   .btn {
     color: white;
