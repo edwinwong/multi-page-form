@@ -43,9 +43,8 @@
     position: relative;
     margin-bottom: 30px;
     max-width: 100%;
-    width: 350px;
+    width: 390px;
   }
-
   .progress-container::before {
     content: '';
     background-color: #e0e0e0;
@@ -57,7 +56,6 @@
     width: 100%;
     z-index: -1;
   }
-
   .progress {
     background-color: #3498db;
     position: absolute;
@@ -69,7 +67,6 @@
     z-index: -1;
     transition: 0.4s ease;
   }
-
   .circle {
     background-color: #fff;
     color: #999;
@@ -83,7 +80,6 @@
     transition: 0.4s ease;
     cursor: pointer;
   }
-
   .circle::after {
     content: attr(data-title) ' ';
     position: absolute;
@@ -91,11 +87,9 @@
     color: #999;
     transition: 0.4s ease;
   }
-
   .circle.active::after {
     color: #3498db;
   }
-
   .circle.active {
     border-color: #3498db;
   }

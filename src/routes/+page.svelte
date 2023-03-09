@@ -1,13 +1,18 @@
 <script lang="ts">
   import type { SvelteComponent } from 'svelte/types/runtime/internal/Component';
+  import { formData } from './store.js';
+  import { browser } from '$app/environment';
   import Form from './Form.svelte';
   import ProgressBar from './ProgressBar.svelte';
 
-  let steps = ['Info', 'Address', 'Payment', 'Confirmation'],
+  let steps = ['Info', 'Address', 'Payment', 'Confirm'],
     currentActive = 1,
     progressBar: SvelteComponent & { handleProgress: (arg: number) => void };
 
   const handleProgress = (stepIncrement: number) => {
+    if (browser) {
+     window.sessionStorage.setItem('sessionFormData', JSON.stringify($formData));
+   }
     progressBar.handleProgress(stepIncrement);
   };
 </script>
@@ -36,7 +41,6 @@
   * {
     box-sizing: border-box;
   }
-
   main {
     font-family: 'Muli', sans-serif;
     display: flex;
@@ -46,11 +50,9 @@
     overflow: hidden;
     margin: 0;
   }
-
   .container {
     padding-top: 50px;
   }
-  
   .btn {
     background-color: #3498db;
     color: #fff;
@@ -62,24 +64,19 @@
     margin: 5px;
     font-size: 14px;
   }
-
   .btn:hover {
     background-color: #3aa3e9;
   }
-
   .btn:active {
     transform: scale(0.98);
   }
-
   .btn:focus {
     outline: 0;
   }
-
   .btn:disabled {
     background-color: #e0e0e0;
     cursor: not-allowed;
   }
-
   .step-button {
     margin-top: 1rem;
     text-align: center;
